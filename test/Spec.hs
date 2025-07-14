@@ -1,6 +1,7 @@
 module Main(main) where
 
 import Text.Megaparsec.IP.IPv6
+import Text.Megaparsec.IP.IPv4
 import Text.Megaparsec
 import Data.Void
 import Data.Text as T
@@ -41,7 +42,25 @@ test02 = do
         let (Left res') = res
         putStrLn (errorBundlePretty res')
 
+test03 :: IO ()
+test03 = do
+    let basic = "255"
+        res = parse subnet "" (T.pack basic)
+        res2 = read basic :: Int
+    if isRight res
+    then do
+        let (Right res') = res
+        if res' /= res2
+        then
+            putStrLn (" Test 03 failed. Got \"" ++ (show res') ++ "\".")
+        else
+            putStrLn " Test 03 Succeeded."
+    else do
+        let (Left res') = res
+        putStrLn (errorBundlePretty res')
+
 main :: IO ()
 main = do
     test01
     test02
+    test03

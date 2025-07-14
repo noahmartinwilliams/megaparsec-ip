@@ -41,6 +41,7 @@ library:
   - text
   - iproute
   - text
+  - containers
 
 tests:
   megaparsec-ip-test:
