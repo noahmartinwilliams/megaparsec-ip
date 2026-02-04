@@ -7,7 +7,7 @@ import Data.Set
 import Data.Text as T
 import Data.List.NonEmpty
 
-subnet :: Parser Int
+subnet :: IPParser Int
 subnet = do
     sn <- label "subnet" (some digitChar) -- (TM.count 1 digitChar <|> TM.count 2 digitChar <|> TM.count 3 digitChar)
     let num = read sn :: Int
