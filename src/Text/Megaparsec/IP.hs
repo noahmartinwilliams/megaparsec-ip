@@ -21,4 +21,4 @@ ip2 = do
     return (IPv6 i)
 
 ip :: IPParser IP
-ip = ip1 <|> ip2
+ip = ((try ip1) <|> (try ip2))
