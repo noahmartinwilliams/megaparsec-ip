@@ -1,6 +1,6 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE OverloadedStrings #-}
-module Text.Megaparsec.IP.IPv6 where
+module Text.Megaparsec.IP.IPv6(ipv6) where
 
 import Control.Monad
 import Text.Megaparsec as TM
